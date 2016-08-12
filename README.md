@@ -1,7 +1,10 @@
-# bootcamp-docker
+bootcamp-docker
+---------
 
-# on
-* docker-compose up -d percona mongo redis memcached ...
+easy install docker container
 
-# off
+## Install
+* docker-compose up -d percona mongo redis memcached
+
+## Uninstall
 * docker-comppse down
