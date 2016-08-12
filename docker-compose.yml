@@ -23,6 +23,7 @@ services:
             MYSQL_USER: homestead
             MYSQL_PASSWORD: secret
             MYSQL_ROOT_PASSWORD: secret
+        restart: always
     percona:
         image: percona:5.7
         container_name: percona
@@ -35,6 +36,7 @@ services:
             MYSQL_USER: homestead
             MYSQL_PASSWORD: secret
             MYSQL_ROOT_PASSWORD: secret
+        restart: always
     mysql:
         image: mysql:5.7
         container_name: mysql
@@ -47,6 +49,7 @@ services:
             MYSQL_USER: homestead
             MYSQL_PASSWORD: secret
             MYSQL_ROOT_PASSWORD: secret
+        restart: always
     postgres:
         image: postgres:9.6
         container_name: postgres
@@ -58,22 +61,25 @@ services:
             POSTGRES_DB: homestead
             POSTGRES_USER: homestead
             POSTGRES_PASSWORD: secret
+        restart: always
     mongo:
-            image: mongo:3.2
-            container_name: mongo
-            volumes_from:
-                - data
-            ports:
-                - "27017:27017"
-                - "27018:27018"
+        image: mongo:3.2
+        container_name: mongo
+        volumes_from:
+            - data
+        ports:
+            - "27017:27017"
+            - "27018:27018"
+        restart: always
     neo4j:
-            image: neo4j:3.0.3
-            container_name: neo4j
-            volumes_from:
-                - data
-            ports:
-                - "7473:7473"
-                - "7474:7474"
+        image: neo4j:3.0.3
+        container_name: neo4j
+        volumes_from:
+            - data
+        ports:
+            - "7473:7473"
+            - "7474:7474"
+        restart: always
     redis:
         image: redis:3.2
         container_name: redis
@@ -81,6 +87,7 @@ services:
             - data
         ports:
             - "6379:6379"
+        restart: always
     memcached:
         image: memcached:1.4
         container_name: memcached
@@ -88,9 +95,12 @@ services:
             - data
         ports:
             - "11211:11211"
+        restart: always
     elasticsearch:
         image: itzg/elasticsearch
         container_name: elasticsearch
         ports:
             - "9200:9200"
             - "9300:9300"
+        restart: always
+
